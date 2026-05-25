@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ripzz Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:
+    radial-gradient(circle at top left,#312e81 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#1e1b4b 0%,transparent 35%),
+    linear-gradient(135deg,#0f172a,#111827,#020617);
+
+    min-height:100vh;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#6366f1;
+    border-radius:20px;
+}
+
+/* HEADER */
+
+header{
+    width:95%;
+    max-width:1250px;
+
+    margin:30px auto;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+
+    position:relative;
+    overflow:hidden;
+}
+
+header::before{
+    content:'';
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    background:#6366f120;
+
+    border-radius:50%;
+
+    top:-120px;
+    right:-120px;
+}
+
+.logo{
+    font-size:48px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#818cf8;
+}
+
+.bio{
+    margin-top:12px;
+
+    font-size:16px;
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+}
+
+.typing-box{
+    margin-top:20px;
+
+    color:#a5b4fc;
+
+    font-weight:600;
+    font-size:18px;
+
+    min-height:30px;
+}
+
+.cursor{
+    animation:blink .7s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+
+/* CONTAINER */
+
+.container{
+    width:95%;
+    max-width:1250px;
+
+    margin:auto;
+
+    padding-bottom:50px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:28px;
+}
+
+/* CARD */
+
+.card{
+    position:relative;
+
+    background:rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:28px;
+
+    padding:28px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.25);
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.01);
+
+    border:1px solid rgba(129,140,248,0.4);
+
+    box-shadow:
+    0 15px 35px rgba(99,102,241,0.25);
+}
+
+.card::before{
+    content:'';
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    background:#6366f11f;
+
+    border-radius:50%;
+
+    top:-70px;
+    right:-70px;
+}
+
+/* NUMBER */
+
+.number{
+    width:52px;
+    height:52px;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+    font-size:18px;
+
+    box-shadow:
+    0 5px 20px rgba(99,102,241,0.4);
+
+    margin-bottom:20px;
+}
+
+/* TITLE */
+
+.title{
+    font-size:24px;
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    line-height:1.5;
+}
+
+/* LIST */
+
+.list{
+    color:#d1d5db;
+
+    line-height:2;
+
+    font-size:15px;
+
+    margin-bottom:28px;
+}
+
+/* BUTTON */
+
+.btn{
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+
+    color:white;
+
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+
+    box-shadow:
+    0 10px 25px rgba(99,102,241,0.45);
+}
+
+/* TESTIMONI */
+
+.testimoni{
+    width:95%;
+    max-width:1250px;
+    margin:0 auto 25px;
+}
+
+.testimoni button{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:24px;
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    color:white;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(99,102,241,0.35);
+}
+
+.testimoni button:hover{
+    transform:scale(1.01);
+}
+
+/* NOTES */
+
+.notes{
+    width:95%;
+    max-width:1250px;
+
+    margin:10px auto 40px;
+
+    background:rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:28px;
+
+    padding:30px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.25);
+}
+
+.notes h3{
+    font-size:24px;
+    margin-bottom:14px;
+}
+
+.notes p{
+    color:#d1d5db;
+    line-height:2;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Ripzz <span>Store</span>
+    </div>
+
+    <div class="bio">
+        Jual Apk Bug GG Dan Murah Meriah Beli Disini Sudah Aman Dan Terpercaya😋
+    </div>
+
+    <div class="typing-box">
+        <span id="typing"></span>
+        <span class="cursor">|</span>
+    </div>
+
+</header>
+
+<div class="container">
+
+    <!-- CARD 1 -->
+
+    <div class="card">
+
+        <div class="number">1</div>
+
+        <div class="title">
+            APP BUG MANTA X RAT 👑
+        </div>
+
+        <div class="list">
+            • Price 1 Hari : 5.000<br>
+            • Price 1 Bulan : 40.000<br>
+            • Manta Full Update : 60.000<br>
+            • Reseller Manta : 80.000<br>
+            • Partner Manta : 100.000
+        </div>
+
+        <button class="btn" onclick="order(1)">
+            Contact Own
+        </button>
+
+    </div>
+
+    <!-- CARD 2 -->
+
+    <div class="card">
+
+        <div class="number">2</div>
+
+        <div class="title">
+            APP BUG VILLAIN CRASH ☠️
+        </div>
+
+        <div class="list">
+            • 1 Hari : 2.000<br>
+            • 1 Bulan : 25.000<br>
+            • Permanen : 40.000<br>
+            • Reseller : 60.000<br>
+            • Partner : 80.000
+        </div>
+
+        <button class="btn" onclick="order(2)">
+            Contact Own
+        </button>
+
+    </div>
+
+    <!-- CARD 3 -->
+
+    <div class="card">
+
+        <div class="number">3</div>
+
+        <div class="title">
+            APP BUG NIGHTMARE.EXE ♦️
+        </div>
+
+        <div class="list">
+            • 1 Hari : 2.000<br>
+            • 1 Bulan : 20.000<br>
+            • Permanent : 35.000<br>
+            • Reseller : 45.000
+        </div>
+
+        <button class="btn" onclick="order(3)">
+            Contact Own
+        </button>
+
+    </div>
+
+    <!-- CARD 4 -->
+
+    <div class="card">
+
+        <div class="number">4</div>
+
+        <div class="title">
+            APP BUG TRAPENDEN ⚜️
+        </div>
+
+        <div class="list">
+            • 1 Bulan : 15.000<br>
+            • Permanen : 25.000<br>
+            • Reseller Perbulan : 35.000<br>
+            • Reseller Permanen : 45.000
+        </div>
+
+        <button class="btn" onclick="order(4)">
+            Contact Own
+        </button>
+
+    </div>
+
+    <!-- CARD 5 -->
+
+    <div class="card">
+
+        <div class="number">5</div>
+
+        <div class="title">
+            BOT FIX RED GACOR 😱
+        </div>
+
+        <div class="list">
+
+            <b>Premium :</b> 5K<br>
+            Unlimited Fix & Bebas Spam Fix<br><br>
+
+            <b>Owner :</b> 10K<br>
+            Unlimited Fix & Bebas Spam Fix Dan Bisa jual Premium & Admin GB<br><br>
+
+            Beli Bonus tutor cara fix Yang Benar
+
+        </div>
+
+        <button class="btn" onclick="order(5)">
+            Contact Own
+        </button>
+
+    </div>
+
+</div>
+
+<!-- TESTIMONI -->
+
+<div class="testimoni">
+
+<a href="https://t.me/Ripzz_Shop" target="_blank">
+
+<button>
+    Lihat Testimoni 😋
+</button>
+
+</a>
+
+</div>
+
+<!-- NOTES -->
+
+<div class="notes">
+
+    <h3>NOTES‼️</h3>
+
+    <p>
+        Bisa DP / nyicil kalau uang belum cukup.<br><br>
+        Benefit Appnya langsung chat Telegram aja karena terlalu panjang kalau ditulis di website😭.
+    </p>
+
+</div>
+
+<footer>
+    © 2026 Ripzz Store
+</footer>
+
+<script>
+
+/* ORDER BUTTON */
+
+function order(nomor){
+
+    let pesan = "";
+
+    if(nomor == 1){
+
+        pesan = "Bang saya mau beli APP BUG MANTA X RAT 👑";
+
+    } else if(nomor == 2){
+
+        pesan = "Bang saya mau beli APP BUG VILLAIN CRASH ☠️";
+
+    } else if(nomor == 3){
+
+        pesan = "Bang saya mau beli APP BUG NIGHTMARE.EXE ♦️";
+
+    } else if(nomor == 4){
+
+        pesan = "Bang saya mau beli APP BUG TRAPENDEN ⚜️";
+
+    } else if(nomor == 5){
+
+        pesan = "Bang saya mau beli BOT FIX RED";
+
+    }
+
+    let username = "RipzzX";
+
+    let url =
+`https://t.me/${username}?text=${encodeURIComponent(pesan)}`;
+
+    window.open(url, "_blank");
+}
+
+/* TYPING EFFECT */
+
+const text = [
+"Yang Mau Beli Contact Own😘...",
+"Beli Sudah Pasti Aman Terpercaya😋...",
+"Harga Murah Meriah😱...",
+"Beli Udah Pasti Balmod🫣..."
+];
+
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+
+const typing = document.getElementById("typing");
+
+function type(){
+
+    current = text[i];
+
+    if(!isDeleting){
+
+        typing.innerHTML = current.substring(0, j++);
+
+        if(j > current.length){
+
+            isDeleting = true;
+            setTimeout(type, 1200);
+            return;
+        }
+
+    } else {
+
+        typing.innerHTML = current.substring(0, j--);
+
+        if(j < 0){
+
+            isDeleting = false;
+            i = (i + 1) % text.length;
+        }
+    }
+
+    setTimeout(type, isDeleting ? 35 : 70);
+}
+
+type();
+
+</script>
+
+</body>
+</html>
